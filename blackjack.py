@@ -32,18 +32,61 @@ class BlackJack():
 		face_values = list(s_face_value + h_face_value + c_cards + d_cards)
 		# A test to make sure we get the correct face_values from cards:
 		r = random.randint(1,52) - 1
-		return cards[r] + '\r\n' + face_values[r]
+		card = cards[r]
+		face_value = face_values[r]
+		return card, face_value
 
-	def deal_cards(self, mucnick):
-		player = self.player
-		player_card_1 = self.give_card()
-		dealer_card_1 = self.give_card()
-		player_card_2 = self.give_card()
-		dealer_card_2 = self.give_card()
+	def hand_value(self, hand):
+		self.hand = hand
+		face_cards = ["10"."J","Q","K"]
+		ace = "A"
+		if ininstance(hand, list):
+			for c in hand:
+				if ininstance(c, str):
+					c = c[1:]
+					if c in face_cards:
+						c = 10
+					elif c == ace:
+						c = 11
+					else:
+						c = int(c)
+					hand.append(c)
+			hand = sum(hand)
+			return hand_value
 
-		pass
+	def start_deal(self):
+		start = input("Deal a game of BlackJack?  (y/n)?")
+		if start != "y":
+			print("Cya!")
+			exit()
+		else:
+			# each a list with two strings, card and face_value
+			player_card_1 = self.give_card()
+			dealer_card_1 = self.give_card()
+			player_card_2 = self.give_card()
+			dealer_card_2 = self.give_card()
 
-	def hit():
+			dealer_hand = self.hand_value(list(dealer_card_1[1], dealer_card_2[1]))
+			player_hand = self.hand_value(list(player_card_1[1], player_card_2[1]))
+
+			dealer_cards = str(dealer_card_1[0] + " " + dealer_card_2[0])
+			player_cards = str(player_card_1[0] + " " + player_card_2[0])
+
+			if int(player_hand) > 21:
+				pass
+				# BUST obviously
+			else:
+				# execute delivery of cards
+				print(f"Your cards are: {player_cards} [value: {player_hand}]\r\n")
+				self.hit_or_stay(dealer_score, player_score, dealer_hand, player_hand)
+
+	def hit_or_stay(self, dealer_score, player_score, dealer_hand, player_hand):
+		hit_or_stay = input("Hit or Stay?\r\n")
+		responses = ["Hit", "hit", "h", "H", "Hit me", "hit me", "Hit me!", "Hit Me!", "Hit Me", "tap", "++"]
+		if hit_or_stay in responses:
+			player_card_3 = self.give_card()
+			
+
 		pass
 
 	def stay():
