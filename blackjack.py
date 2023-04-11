@@ -36,7 +36,7 @@ class BlackJack():
 		face_value = face_values[r]
 		return card, face_value
 
-	def hand_value(self, hand):
+	def hand_value(self, hand, hit):
 		self.hand = hand
 		face_cards = ["10"."J","Q","K"]
 		ace = "A"
@@ -66,31 +66,67 @@ class BlackJack():
 			player_card_2 = self.give_card()
 			dealer_card_2 = self.give_card()
 
-			dealer_hand = self.hand_value(list(dealer_card_1[1], dealer_card_2[1]))
-			player_hand = self.hand_value(list(player_card_1[1], player_card_2[1]))
+			dealer_hand = self.hand_value(list(dealer_card_1[1], dealer_card_2[1]), 0)
+			player_hand = self.hand_value(list(player_card_1[1], player_card_2[1]), 0)
 
 			dealer_cards = str(dealer_card_1[0] + " " + dealer_card_2[0])
 			player_cards = str(player_card_1[0] + " " + player_card_2[0])
 
 			if int(player_hand) > 21:
+				# bust()
 				pass
-				# BUST obviously
+			elif int(player_hand) == 21:
+				pass
 			else:
+
+		###	### TODO: dealer shows one card :TODO ###
+		### TODO: dealer shows one card :TODO ### ###
+		###	### TODO: dealer shows one card :TODO ###
+		### TODO: dealer shows one card :TODO ### ###
+		###	### TODO: dealer shows one card :TODO ###
+
 				# execute delivery of cards
 				print(f"Your cards are: {player_cards} [value: {player_hand}]\r\n")
-				self.hit_or_stay(dealer_score, player_score, dealer_hand, player_hand)
+				self.hit_or_stay(self, dealer_cards, player_cards, dealer_hand, player_hand)
 
-	def hit_or_stay(self, dealer_score, player_score, dealer_hand, player_hand):
+	def hit_or_stay(self, dealer_cards, player_cards, dealer_hand, player_hand):
 		hit_or_stay = input("Hit or Stay?\r\n")
-		responses = ["Hit", "hit", "h", "H", "Hit me", "hit me", "Hit me!", "Hit Me!", "Hit Me", "tap", "++"]
-		if hit_or_stay in responses:
+		hits = ["Hit", "hit", "h", "H", "Hit me", "hit me", "Hit me!", "Hit Me!", "Hit Me", "tap", "++", "y", "Y"]
+		stays = ["Stay", "stay", "s", "hold", "Hold", "h", "H", "n", "N", "--"]
+		
+		if hit_or_stay in hits:
 			player_card_3 = self.give_card()
+			c = player_card_3[1:]
+			face_cards = ["10"."J","Q","K"]
+			ace = "A"
 			
+			if c in face_cards:
+				c = 10
+			elif c == ace:
+				c = 11
+			else:
+				c = player_card_3[1:]
 
+			self.player_cards = player_cards
+			player_cards = str(player_cards + " " + player_card_3[0])
+			player_hand = int(player_hand + c)
+			
+			if player_hand == 21:
+				# dealer()
+				pass
+			elif player_hand > 21:
+				# bust()
+				pass
+			else:
+				hit_or_stay(self, dealer_cards, player_cards, dealer_hand, player_hand)
+
+		if hit_or_stay in stays:
+			### TODO: create function for dealer play :TODO ###
+			# dealer()
+			pass
+
+	def bust(self):
 		pass
 
-	def stay():
-		pass
-
-	def complete():
+	def dealer():
 		pass
