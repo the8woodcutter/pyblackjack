@@ -3,14 +3,37 @@
 import random
 
 class BlackJack():
-	# ♠ = cards.spade
-	# ♥ = cards.heart
-	# ♣ = cards.club
-	# ♦ = cards.diamond
-	# spade = {"A": "🂡", "2": "🂢", "3": "🂣", "4": "🂤", "5": "🂥", "6": "🂦", "7": "🂧", "8": "🂨", "9": "🂩", "10": "🂪" ,"J": "🂫", "Q": "🂭", "K": "🂮"}
-	# heart = {"A": "🂱", "2": "🂲", "3": "🂳", "4": "🂴", "5": "🂵", "6": "🂶", "7": "🂷", "8": "🂸", "9": "🂹", "10": "🂺", "J": "🂻", "Q": "🂽", "K": "🂾"}
-	# club = {"A": "🃑", "2": "🃒", "3": "🃓", "4": "🃔", "5": "🃕", "6": "🃖", "7": "🃗", "8": "🃘", "9": "🃙", "10": "🃚" ,"J": "🃛", "Q": "🃝", "K": "🃞"}
-	# diamond = {"A": "🃁", "2": "🃂", "3": "🃃", "4": "🃄", "5": "🃅", "6": "🃆", "7": "🃇", "8": "🃈", "9": "🃉", "10": "🃊" ,"J": "🃋", "Q": "🃍", "K": "🃎"}
+
+	###	TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO ##
+		### TODO: dealer shows one card :TODO
+		### TODO: create functions for dealer play, bust and blackjack :TODO
+		### TODO: make it so that player cards all REMAIN with their indexes :TODO
+		### TODO: declare all variables globally as empty types, for reference on their intended types :TODO
+		### TODO: consider a NEW naming scheme :TODO
+	###	TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO ##
+
+	scs = [] # spade cards
+	hcs = [] # heart cards
+	ccs = [] # club cards
+	dcs = [] # diamond cards
+	sfv = [] # spade face value
+	hfv = [] # heart face value
+	cfv = [] # club face value
+	dfv = [] # diamond face value
+	cs = [] # cards
+	fvs = [] # face values
+	fv = str() # face value
+	c = str() # card
+	pc1 = [] # player card 1
+	pc2 = [] # player card 2
+	pc3 = [] # player card 3
+	pc4 = [] # player card 4
+	pc5 = [] # player card 5
+	dc1 = [] # dealer card 1
+	dc2 = [] # dealer card 2
+	dc3 = [] # dealer card 3
+	dc4 = [] # dealer card 4
+	dc5 = [] # dealer card 5
 
 	def give_card(self):
 		spade = {"SA": "🂡", "S2": "🂢", "S3": "🂣", "S4": "🂤", "S5": "🂥", "S6": "🂦", "S7": "🂧", "S8": "🂨", "S9": "🂩", "S10": "🂪" ,"SJ": "🂫", "SQ": "🂭", "SK": "🂮"}
@@ -76,6 +99,7 @@ class BlackJack():
 				# bust()
 				pass
 			elif int(player_hand) == 21:
+				# dealer()
 				pass
 			else:
 
@@ -121,7 +145,6 @@ class BlackJack():
 				hit_or_stay(self, dealer_cards, player_cards, dealer_hand, player_hand)
 
 		if hit_or_stay in stays:
-			### TODO: create function for dealer play :TODO ###
 			# dealer()
 			pass
 
@@ -130,3 +153,12 @@ class BlackJack():
 
 	def dealer():
 		pass
+
+	def blackjack(self, player_cards):
+		pass
+
+
+	# ♠ = cards.spade
+	# ♥ = cards.heart
+	# ♣ = cards.club
+	# ♦ = cards.diamond
